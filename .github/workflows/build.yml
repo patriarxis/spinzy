@@ -1,0 +1,32 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm ci
+      - name: Assert required assets
+        run: |
+          test -f public/assets/images/suv-runner.png
+          test -f public/assets/images/prizes/suv.webp
+          test -f public/assets/images/wheel-prizes/suv.webp
+          test -f public/assets/sounds/spin-wheel.wav
+          test -f public/CNAME
+      - run: npm run build
+      - name: Assert dist output
+        run: |
+          test -f dist/index.html
+          test -f dist/CNAME
+          test -d dist/assets/images/prizes
+          test -d dist/assets/sounds

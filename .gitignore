@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Build
+dist/
+
+# Legacy root entry (migrated to src/ + public/)
+# Keep tracked assets under public/assets and assets/
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Logs / env
+*.log
+.env
+.env.*
+!.env.example

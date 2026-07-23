@@ -1,0 +1,20 @@
+{
+  "name": "spinzy",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "dragula": "^3.7.3",
+    "konva": "^9.3.20"
+  },
+  "devDependencies": {
+    "@types/dragula": "^3.7.5",
+    "typescript": "~5.7.2",
+    "vite": "^6.0.7"
+  }
+}

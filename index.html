@@ -6,75 +6,49 @@
     <title>FlexCar Spin Wheel</title>
     <meta
       name="description"
-      content="Try your luck with FlexCar's Spin Wheel for a chance to win amazing prizes. Spin now and see if you can drive away with exciting rewards!"
+      content="Try your luck with FlexCar's Spin Wheel for a chance to win amazing prizes."
     />
-
-    <!-- SEO Meta Tags -->
-    <meta
-      name="description"
-      content="Try your luck with FlexCar's Spin Wheel for a chance to win amazing prizes. Spin now and see if you can drive away with exciting rewards!"
-    />
-    <meta
-      name="keywords"
-      content="FlexCar, Spin Wheel, prizes, rewards, game, win, car leasing, FlexCar Spin, lucky draw"
-    />
-    <meta name="robots" content="index, follow" />
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://hub.flexcar.com/spin-wheel" />
-    <meta property="og:title" content="Spin Wheel | FlexCar" />
-    <meta
-      property="og:description"
-      content="Spin the FlexCar Wheel and win exclusive rewards! Click to spin and see if luck is on your side!"
-    />
-    <meta
-      property="og:image"
-      content="https://hub.flexcar.gr/hubfs/Landing%20Pages/Spin%20Wheel/Images/Meta-Image.jpg"
-    />
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://hub.flexcar.com/spin-wheel" />
-    <meta property="twitter:title" content="Spin Wheel | FlexCar" />
-    <meta
-      property="twitter:description"
-      content="Try the FlexCar Spin Wheel for a chance to win prizes! Spin now and get lucky!"
-    />
-    <meta
-      property="twitter:image"
-      content="https://hub.flexcar.gr/hubfs/Landing%20Pages/Spin%20Wheel/Images/Meta-Image.jpg"
-    />
-
-    <link rel="stylesheet" href="./spin-wheel.css" />
-    <script src="./spin-wheel.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.min.js"></script>
+    <link rel="icon" href="/assets/images/buttons/spin-button.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700;800&display=swap"
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.min.css"
     />
-    <script src="https://unpkg.com/konva@9/konva.min.js"></script>
   </head>
   <body>
     <main>
       <div class="container">
-        <img class="notch" src="./assets/images/notch.svg" />
-        <button class="settings-button button" onclick="openSettingsModal()">
-          <img src="./assets/images/buttons/settings-button.svg" />
+        <img class="notch" src="/assets/images/notch.svg" alt="" />
+        <button
+          type="button"
+          class="settings-button button"
+          aria-label="Open settings"
+        >
+          <img src="/assets/images/buttons/settings-button.svg" alt="" />
         </button>
         <div class="grid"></div>
         <div class="bottom-shadow"></div>
         <div class="wheel-container">
-          <img class="wheel-arrow" src="./assets/images/arrow.svg" />
-          <img class="wheel-background" src="./assets/images/spin-wheel.svg" />
+          <img class="wheel-arrow" src="/assets/images/arrow.svg" alt="" />
+          <img
+            class="wheel-background"
+            src="/assets/images/spin-wheel.svg"
+            alt=""
+          />
           <div id="wheel-stage" class="wheel"></div>
-          <button class="spin-button button" onclick="spinWheel()">
-            <img src="./assets/images/buttons/spin-button.svg" />
+          <button type="button" class="spin-button button" aria-label="Spin the wheel">
+            <img src="/assets/images/buttons/spin-button.svg" alt="" />
           </button>
         </div>
         <div class="pacman-container">
           <div class="pacman-wrapper">
-            <img src="./assets/images/pacman.png" alt="" class="pacman" />
+            <img
+              src="/assets/images/suv-runner.png"
+              alt=""
+              class="pacman"
+              aria-hidden="true"
+            />
             <div class="dots"></div>
           </div>
         </div>
@@ -82,8 +56,12 @@
 
       <div class="settings-menu modal-container" data-state="closed">
         <div class="modal">
-          <button onclick="closeSettingsModal()" class="close-modal-btn button">
-            <img src="./assets/images/buttons/close-button.svg" />
+          <button
+            type="button"
+            class="close-modal-btn button"
+            aria-label="Close settings"
+          >
+            <img src="/assets/images/buttons/close-button.svg" alt="" />
           </button>
 
           <div class="modal-content">
@@ -100,24 +78,24 @@
 
               <ul class="prizes"></ul>
 
-              <button class="add-prize-button" onclick="addNewPrize()">
-                + Add prize
-              </button>
+              <button type="button" class="add-prize-button">+ Add prize</button>
             </div>
 
             <div class="modal-buttons two">
               <button
+                type="button"
                 class="settings-cancel modal-button button"
-                onclick="cancelSettings()"
+                aria-label="Cancel settings"
               >
-                <img src="./assets/images/buttons/cancel-button.svg" />
+                <img src="/assets/images/buttons/cancel-button.svg" alt="" />
               </button>
 
               <button
+                type="button"
                 class="settings-apply modal-button button"
-                onclick="applySettings()"
+                aria-label="Apply settings"
               >
-                <img src="./assets/images/buttons/apply-button.svg" />
+                <img src="/assets/images/buttons/apply-button.svg" alt="" />
               </button>
             </div>
           </div>
@@ -126,15 +104,17 @@
 
       <div class="winning-modal modal-container" data-state="closed">
         <div class="modal">
-          <button onclick="closeWinningModal()" class="close-modal-btn button">
-            <img src="./assets/images/buttons/close-button.svg" />
+          <button
+            type="button"
+            class="close-modal-btn button"
+            aria-label="Close winning modal"
+          >
+            <img src="/assets/images/buttons/close-button.svg" alt="" />
           </button>
 
           <div class="modal-content">
-            <img class="you-won" src="./assets/images/you-won.svg" />
-
-            <img class="winning-prize-img" />
-
+            <img class="you-won" src="/assets/images/you-won.svg" alt="You won" />
+            <img class="winning-prize-img" alt="" />
             <div class="winning-prize-info"></div>
           </div>
         </div>
@@ -142,13 +122,17 @@
 
       <div class="try-again-modal modal-container" data-state="closed">
         <div class="modal">
-          <button onclick="closeTryAgainModal()" class="close-modal-btn button">
-            <img src="./assets/images/buttons/close-button.svg" />
+          <button
+            type="button"
+            class="close-modal-btn button"
+            aria-label="Close try again modal"
+          >
+            <img src="/assets/images/buttons/close-button.svg" alt="" />
           </button>
 
           <div class="modal-content">
             <div class="try-again-img">
-              <img src="./assets/images/prizes/try-again.webp" />
+              <img src="/assets/images/prizes/try-again.webp" alt="" />
             </div>
 
             <div class="try-again-info">
@@ -161,28 +145,16 @@
 
           <div class="modal-buttons one">
             <button
-              onclick="closeTryAgainModal()"
+              type="button"
               class="retry-button modal-button button"
+              aria-label="Close and try again later"
             >
-              <img src="./assets/images/buttons/retry-button.svg" />
+              <img src="/assets/images/buttons/retry-button.svg" alt="" />
             </button>
           </div>
         </div>
       </div>
-
-      <datalist id="propabilityNumbers">
-        <option value="100"></option>
-        <option value="75"></option>
-        <option value="50"></option>
-        <option value="25"></option>
-        <option value="10"></option>
-        <option value="5"></option>
-        <option value="2"></option>
-        <option value="1"></option>
-        <option value="0.1"></option>
-        <option value="0.01"></option>
-        <option value="0"></option>
-      </datalist>
     </main>
+    <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

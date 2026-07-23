@@ -9,6 +9,7 @@
   --grey-3: #787a7a;
   --grey-2: #b5b3b3;
   --grey-1: #e7e7e7;
+  --dark: #464342;
 
   --base-size: 1.6vh;
 
@@ -422,6 +423,8 @@ button {
   width: var(--pacman-size);
   opacity: 0;
   transform: translateY(-40%);
+  z-index: 2;
+  pointer-events: none;
 }
 
 .pacman-animation {
@@ -448,6 +451,8 @@ button {
 }
 
 .dots {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -459,8 +464,17 @@ button {
 
 .dot {
   width: var(--pacman-dot-size);
-  transition: all 0.3s ease-out;
+  height: auto;
+  flex-shrink: 0;
+  transition: opacity 0.25s ease-out, transform 0.25s ease-out;
   animation: pacmanDotAnimation 3s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.dot.eaten {
+  opacity: 0;
+  transform: scale(0);
+  animation: none;
 }
 
 .eaten {
@@ -572,57 +586,11 @@ button {
   height: 100%;
 }
 
-.custom-checkbox {
-  display: inline-flex;
+.prize-name-wrapper {
+  display: flex;
   align-items: center;
-  cursor: pointer;
-}
-
-.checkbox {
-  display: none;
-}
-
-.custom-checkbox .checkmark {
-  width: 1rem;
-  height: 1rem;
-  background-color: var(--grey-1);
-  border: 1px solid;
-  border-radius: 0.25rem;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
-  box-shadow: 0 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.25);
-}
-
-.prize-item.default .custom-checkbox .checkmark {
-  border-color: var(--grey-2);
-}
-
-.prize-item.grand-prize .custom-checkbox .checkmark {
-  border-color: var(--white);
-}
-
-.prize-item.try-again .custom-checkbox .checkmark {
-  border-color: var(--white);
-}
-
-.checkbox:checked + .checkmark {
-  background-color: var(--red-1);
-  position: relative;
-}
-
-.checkbox:checked + .checkmark::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 30%;
-  height: 30%;
-  border-radius: 50%;
-  background-color: var(--white);
-  transform: translate(-50%, -50%);
-}
-
-.prize-select {
-  font-size: 1rem;
+  padding: 0.25rem 0.5rem;
+  min-width: 0;
 }
 
 .prize-rearrange-wrapper,
@@ -634,37 +602,12 @@ button {
 }
 
 .prize-rearrange,
-.prize-probability,
 .prize-color {
   text-align: center;
 }
 
 .prize-rearrange-wrapper {
   cursor: move;
-}
-
-.prize-probability {
-  border: none;
-  background-color: rgba(0, 0, 0, 0.1);
-  padding: 0.25rem;
-  width: 5rem;
-  font-size: 1rem;
-  text-align: center;
-  border-radius: 0.25rem;
-  -webkit-appearance: none;
-  -moz-appearance: textfield;
-}
-
-.prize-item.default .prize-probability {
-  color: var(--grey-4);
-}
-
-.prize-item.grand-prize .prize-probability {
-  color: var(--white);
-}
-
-.prize-item.try-again .prize-probability {
-  color: var(--white);
 }
 
 .prize-color {
@@ -702,31 +645,6 @@ button {
 .prize-item.try-again .prize-color {
   background-color: var(--grey-4);
   border-color: var(--white);
-}
-
-.add-prize-modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  z-index: 1500;
-  max-width: 400px;
-  border-radius: 8px;
-}
-
-.available-prizes-list {
-  list-style: none;
-  padding: 0;
-}
-
-.available-prize-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 10px 0;
 }
 
 .prize-remove-button {
