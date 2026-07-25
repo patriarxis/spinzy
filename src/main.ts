@@ -22,10 +22,6 @@ import {
 } from "./settings";
 import { closeTryAgainModal, closeWinningModal } from "./result-modals";
 
-/** Public builds hide Settings unless VITE_ENABLE_SETTINGS=true */
-const settingsEnabled =
-  import.meta.env.DEV || import.meta.env.VITE_ENABLE_SETTINGS === "true";
-
 let prizes: Prize[] = createDefaultPrizes();
 
 function syncPrizes(next: Prize[]): void {
@@ -39,17 +35,7 @@ function bindUi(): void {
   const spinButton =
     document.querySelector<HTMLButtonElement>(".spin-button");
 
-  if (settingsButton) {
-    if (!settingsEnabled) {
-      settingsButton.hidden = true;
-      settingsButton.setAttribute("aria-hidden", "true");
-    } else {
-      settingsButton.addEventListener("click", () =>
-        openSettingsModal(prizes)
-      );
-    }
-  }
-
+  settingsButton?.addEventListener("click", () => openSettingsModal(prizes));
   spinButton?.addEventListener("click", () => spinWheel());
 
   document

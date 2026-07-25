@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 
-// Custom domain (spinzy.patriarxis.com) → root base
+// Root base for Vercel (and any root-domain host)
 export default defineConfig({
   base: "/",
   publicDir: "public",
